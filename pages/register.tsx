@@ -15,6 +15,7 @@ export default function Register() {
         let invalid = true;
         for (let i = 0; i < objValues.length; i++) {
             if (objValues[i] == '') {
+                setDisabled(true);
                 break;
             }
             if(i == objValues.length - 1) {
@@ -115,7 +116,7 @@ export default function Register() {
                     <div>
                         <div className="mb-2 block">
                             <Label
-                                htmlFor="password1"
+                                htmlFor="password"
                                 value="Password"
                             />
                         </div>
@@ -132,9 +133,6 @@ export default function Register() {
                         Register
                     </Button>
                 </form>
-            </div>
-            <div className="w-100 bg-[#1da1f2]">
-                <p>hej hejhejhejhejhejhejhejhejhejhejhejhejhejhejhejhejhejhejhejhejhejhejhejhejhej</p>
             </div>
         </div>
     )
