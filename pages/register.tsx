@@ -18,11 +18,11 @@ export default function Register() {
                 setDisabled(true);
                 break;
             }
-            if(i == objValues.length - 1) {
+            if (i == objValues.length - 1) {
                 invalid = false;
             }
         }
-        if(!invalid) {
+        if (!invalid) {
             setDisabled(false);
         }
     }
@@ -64,75 +64,77 @@ export default function Register() {
     }
 
     return (
-        <div className="flex flex-row">
-            <div className="ml-5 w-[600px]">
-                <h1 className="text-2xl mb-4">Registration</h1>
-                <form className="flex flex-col gap-4" onSubmit={(e) => submit(e)}>
-                    <div>
+        <div className="flex flex-row justify-center text-center">
+            <div className="container">
+                <div className="mx-auto w-[600px]">
+                    <h1>Registration</h1>
+                    <form className="flex flex-col gap-4" onSubmit={(e) => submit(e)}>
                         <div>
+                            <div>
+                                <div className="mb-2 block">
+                                    <Label
+                                        htmlFor="firstname"
+                                        value="First Name"
+                                    />
+                                </div>
+                                <TextInput onChange={(e) => validate(e)}
+                                           id="firstname"
+                                           type="text"
+                                           name="first_name"
+                                           placeholder="First Name"
+                                           required={true}
+                                />
+                            </div>
+                            <div>
+                                <div className="mb-2 block">
+                                    <Label
+                                        htmlFor="lastname"
+                                        value="Last Name"
+                                    />
+                                </div>
+                                <TextInput onChange={(e) => validate(e)}
+                                           id="lastname"
+                                           type="text"
+                                           name="last_name"
+                                           placeholder="Last Name"
+                                           required={true}
+                                />
+                            </div>
                             <div className="mb-2 block">
                                 <Label
-                                    htmlFor="firstname"
-                                    value="First Name"
+                                    htmlFor="email1"
+                                    value="Email"
                                 />
                             </div>
                             <TextInput onChange={(e) => validate(e)}
-                                       id="firstname"
-                                       type="text"
-                                       name="first_name"
-                                       placeholder="First Name"
+                                       id="email1"
+                                       type="email"
+                                       name="email"
+                                       placeholder="your@email.com"
                                        required={true}
                             />
                         </div>
                         <div>
                             <div className="mb-2 block">
                                 <Label
-                                    htmlFor="lastname"
-                                    value="Last Name"
+                                    htmlFor="password"
+                                    value="Password"
                                 />
                             </div>
                             <TextInput onChange={(e) => validate(e)}
-                                       id="lastname"
+                                       id="password"
                                        type="text"
-                                       name="last_name"
-                                       placeholder="Last Name"
+                                       name="password"
                                        required={true}
                             />
                         </div>
-                        <div className="mb-2 block">
-                            <Label
-                                htmlFor="email1"
-                                value="Email"
-                            />
-                        </div>
-                        <TextInput onChange={(e) => validate(e)}
-                                   id="email1"
-                                   type="email"
-                                   name="email"
-                                   placeholder="your@email.com"
-                                   required={true}
-                        />
-                    </div>
-                    <div>
-                        <div className="mb-2 block">
-                            <Label
-                                htmlFor="password"
-                                value="Password"
-                            />
-                        </div>
-                        <TextInput onChange={(e) => validate(e)}
-                                   id="password"
-                                   type="text"
-                                   name="password"
-                                   required={true}
-                        />
-                    </div>
-                    {errorMessage && <div className="text-2xl text-red-500 font-medium">{errorMessage}</div>}
-                    {successMessage && <div className="text-2xl text-green-500 font-medium">{successMessage}</div>}
-                    <Button disabled={disabled} color="purple" type="submit">
-                        Register
-                    </Button>
-                </form>
+                        {errorMessage && <div className="text-2xl text-red-500 font-medium">{errorMessage}</div>}
+                        {successMessage && <div className="text-2xl text-green-500 font-medium">{successMessage}</div>}
+                        <Button disabled={disabled} type="submit">
+                            Register
+                        </Button>
+                    </form>
+                </div>
             </div>
         </div>
     )

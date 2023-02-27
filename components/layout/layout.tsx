@@ -1,10 +1,16 @@
 import React, {ReactNode} from "react";
-import NavBar from "./navigation/navBar";
 import Head from 'next/head';
+import {LoginService} from "@/utils/login-service";
+import dynamic from "next/dynamic";
 
 interface ILayoutProps {
     children: ReactNode;
 }
+
+const isLoggedIn = LoginService.get().isLoggedIn();
+
+const Nav = dynamic(() => import("@/components/layout/navigation/navBar"), {ssr: false});
+const SignedInNav = dynamic(() => import("@/components/layout/navigation/signedInNavBar"), {ssr: false});
 
 const Layout = ({children}: ILayoutProps) => {
     return (
@@ -15,8 +21,8 @@ const Layout = ({children}: ILayoutProps) => {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
-            <NavBar/>
-            <div className={"p-4 max-w-max"}>
+            {isLoggedIn ? <SignedInNav></SignedInNav> : <Nav></Nav>}
+            <div>
                 {children}
             </div>
         </>

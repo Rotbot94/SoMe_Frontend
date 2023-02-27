@@ -1,31 +1,34 @@
 import {useRouter} from "next/router";
 import React from "react";
-import NavItem from "@/components/layout/navigation/navItem";
 import {Navbar} from "flowbite-react";
 
-export default function NavBar() {
+export default function NavBar(): JSX.Element {
     const router = useRouter();
 
     let isActive = (path: string) => {
-        if (router.asPath == path) {
-            return true;
+        if (!path) {
+            return false;
         }
+        return router.asPath == path;
     }
 
     return (
-        <Navbar fluid={true} rounded={true}>
-            <Navbar.Toggle/>
-            <Navbar.Collapse>
-                <Navbar.Link href="/" active={isActive('/')}>
-                    Home
-                </Navbar.Link>
-                <Navbar.Link href="/login" active={isActive('/login')}>
-                    Login
-                </Navbar.Link>
-                <Navbar.Link className="self-end" href="/register" active={isActive('/register')}>
-                    Register
-                </Navbar.Link>
-            </Navbar.Collapse>
-        </Navbar>
+        <>
+            <Navbar className="navbar" fluid={true} rounded={true}>
+                <Navbar.Brand href={"/"}>
+                    <h1>SoMe</h1>
+                </Navbar.Brand>
+                <Navbar.Toggle/>
+                <Navbar.Collapse>
+                    <Navbar.Link href="/login" active={isActive('/login')}>
+                        Login
+                    </Navbar.Link>
+                    <Navbar.Link href="/register" active={isActive('/register')}>
+                        Register
+                    </Navbar.Link>
+                </Navbar.Collapse>
+            </Navbar>
+        </>
+
     );
 }

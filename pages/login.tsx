@@ -1,12 +1,14 @@
-import {Button, Label, TextInput} from "flowbite-react";
+import {Label, Button, TextInput} from "flowbite-react";
 import {UtilService} from "@/utils/util-service";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {LoginService} from '@/utils/login-service';
 import Router from "next/router";
+import {UserService} from "@/utils/user-service";
 
 export default function Login() {
 
     const [disabled, setDisabled] = useState(true);
+
     const validate = (event: any) => {
         const formData = UtilService.get().getFormData(event.target as HTMLFormElement);
         let objValues = Object.values(formData);
@@ -32,7 +34,8 @@ export default function Login() {
         try {
             const res = await LoginService.get().login(formData);
             if (res?.status == 200 || res?.status == 201) {
-                await Router.push('/profile');
+                await UserService.get().getUser();
+                await Router.push('/profile').finally(() => Router.reload());
             }
         } catch (e) {
             console.log(e);
@@ -40,41 +43,44 @@ export default function Login() {
         }
     }
 
-    return (<div>
-            <form onSubmit={(event) => submit(event)}>
-                <h1 className="text-2xl mb-4">Login</h1>
-                <div className="mb-2 block">
-                    <Label
-                        htmlFor="email1"
-                        value="Email"
-                    />
-                </div>
-                <TextInput onChange={(e) => validate(e)}
-                           id="email1"
-                           type="email"
-                           name="email"
-                           placeholder="your@email.com"
-                           required={true}
-                />
-                <div>
-                    <div className="mb-2 block">
+    return (
+        <div className="flex flex-row justify-center text-center">
+            <div className="container">
+                <form className="w-6/12 mx-auto" onSubmit={(event) => submit(event)}>
+                    <h1 className="mb-5">Login</h1>
+                    <div className="mb-2">
                         <Label
-                            htmlFor="password"
-                            value="Password"
+                            htmlFor="email1"
+                            value="Email"
                         />
                     </div>
                     <TextInput onChange={(e) => validate(e)}
-                               className="mb-4"
-                               id="password"
-                               type="password"
-                               name="password"
+                               id="email1"
+                               type="email"
+                               name="email"
+                               placeholder="your@email.com"
                                required={true}
                     />
-                </div>
-                <Button disabled={disabled} color="purple" type="submit">
-                    Register
-                </Button>
-            </form>
+                    <div>
+                        <div className="mb-2 ">
+                            <Label
+                                htmlFor="password"
+                                value="Password"
+                            />
+                        </div>
+                        <TextInput onChange={(e) => validate(e)}
+                                   className="mb-4"
+                                   id="password"
+                                   type="password"
+                                   name="password"
+                                   required={true}
+                        />
+                    </div>
+                    <Button className="mx-auto px-5"  disabled={disabled} type="submit">
+                        Login
+                    </Button>
+                </form>
+            </div>
         </div>
     )
 }

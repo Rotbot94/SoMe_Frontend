@@ -8,7 +8,7 @@ import {cookies} from "next/headers";
 export class UserService {
   private static instance: UserService;
 
-  private user: any;
+  private user: User | undefined;
 
   constructor() {}
 
@@ -20,7 +20,7 @@ export class UserService {
   }
 
   public resetUser() {
-    this.user = null;
+    this.user = undefined;
   }
 
   public async getUser() {
@@ -36,7 +36,7 @@ export class UserService {
       }
     }).then((data) => {
             this.user = data.data;
-            return data;
+            return this.user;
     })
   }
 

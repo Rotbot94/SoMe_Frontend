@@ -19,7 +19,7 @@ export class LoginService {
 
     loginGuard() {
         if (this.isLoggedIn()) {
-            return;
+            return true;
         }
         this.logout();
     }
@@ -58,6 +58,6 @@ export class LoginService {
 
     public logout() {
         this.resetCookies();
-        Router.push("/login");
+        Router.push("/login").finally(() => Router.reload());
     }
 }
