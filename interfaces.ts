@@ -10,7 +10,7 @@ export interface User {
 
 export interface Post {
     postId?: any;
-    userId: any;
+    user: any;
     createdAt: any;
     content: any;
     interactions: any;

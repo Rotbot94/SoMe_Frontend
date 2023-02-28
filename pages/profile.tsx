@@ -47,28 +47,31 @@ export default class Profile extends React.Component<any, any> {
         const user: User = this.state.user;
 
         return (
-            <div className="flex flex-row justify-center">
-                <div className="flex flex-col items-center">
-                    <ProfileInfo user={user}/>
-                    <div
-                        className={"mt-5 flex flex-row !min-w-full !max-w-max bg-[#98CAF1] border-4 rounded justify-around"}>
-                        <Button onClick={() => this.changeTab('posts')}
-                                className={this.state?.isActive === 'posts' ? this.isActiveClasses() : 'grow-0'}
-                                title="Posts">Posts (1)</Button>
-                        <Button onClick={() => this.changeTab('connections')}
-                                className={this.state?.isActive === 'connections' ? this.isActiveClasses() : 'grow-0'}
-                                title="Posts">Connections (2)</Button>
-                        <Button onClick={() => this.changeTab('media')}
-                                className={this.state?.isActive === 'media' ? this.isActiveClasses() : 'grow-0'}
-                                title="Posts">Media(6)</Button>
-                    </div>
-                    <div className="mt-5 rounded flex flex-col border-4 !w-[75%] h-fit">
-                        {this.state?.isActive === 'posts' && <Posts/>}
-                        {this.state?.isActive === 'connections' && <Connections/>}
-                        {this.state?.isActive === 'media' && <Media/>}
+            <>
+                <div className="flex flex-row justify-center">
+                    <div className="flex flex-col items-center">
+                        <ProfileInfo user={user}/>
+                        <div
+                            className={"mt-5 flex flex-row !min-w-full !max-w-max bg-[#98CAF1] border-4 rounded justify-around"}>
+                            <Button onClick={() => this.changeTab('posts')}
+                                    className={this.state?.isActive === 'posts' ? this.isActiveClasses() : 'grow-0'}
+                                    title="Posts">Posts (3)</Button>
+                            <Button onClick={() => this.changeTab('connections')}
+                                    className={this.state?.isActive === 'connections' ? this.isActiveClasses() : 'grow-0'}
+                                    title="Posts">Connections (3)</Button>
+                            <Button onClick={() => this.changeTab('media')}
+                                    className={this.state?.isActive === 'media' ? this.isActiveClasses() : 'grow-0'}
+                                    title="Posts">Media(6)</Button>
+                        </div>
+                        <div className="mt-5 flex flex-col scroll !min-w-full !max-w-max items-center">
+                            {this.state?.isActive === 'posts' && <Posts/>}
+                            {this.state?.isActive === 'connections' && <Connections/>}
+                            {this.state?.isActive === 'media' && <Media/>}
+                        </div>
                     </div>
                 </div>
-            </div>
+
+            </>
         )
     }
 }

@@ -6,8 +6,8 @@ export default function ProfileDescription(props: any) {
     const createdAt = moment(props?.createdAt).format("MM-YY") ?? 'time is a construct, fool';
 
     return (
-        <div className="w-6/12 text-center p-2 mt-2 border-2 rounded">
-            <p className="">
+        <div className="w-6/12 bg-[#98CAF1] text-center p-2 mt-2 border-2 rounded text-white">
+            <p>
                 {description}
             </p>
             <p>Here since: <strong>{createdAt}</strong></p>

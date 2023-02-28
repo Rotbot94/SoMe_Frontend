@@ -2,29 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-/*:root {*/
-/*    --primary: "#98CAF1"*/
-/*}*/
-
 * {
-
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-    border-color: #98CAF1!important;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border-color: #98CAF1 !important;
 }
 
 html,
 body {
-    padding: 0!important;
-    margin: 0!important;
+    max-width: 100vw;
+    overflow-x: hidden;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     background: #F1BF98;
 }
 
 button {
-    background: #98CAF1!important;
+    background: #98CAF1 !important;
 }
 
 h1 {
@@ -33,12 +28,10 @@ h1 {
 }
 
 
-
 .navbar {
     background: #98CAF1;
-    width: 100vw!important;
 }
 
 a:active, a:hover {
-    color: #F1BF98!important;
+    color: #F1BF98 !important;
 }

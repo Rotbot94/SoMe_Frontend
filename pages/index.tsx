@@ -2,9 +2,7 @@
 export default function Home() {
   return (
     <>
-      <main>
-        <h1>Landing Page</h1>
-      </main>
+      <h1 className="mt-5 text-center text-white text-5xl">Pesty Ninja</h1>
     </>
   )
 }

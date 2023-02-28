@@ -1,7 +1,7 @@
 import React from "react";
 import {LoginService} from "@/utils/login-service";
 import {UserService} from "@/utils/user-service";
-import ProfileImage from "@/components/profileImage";
+import Posts from "@/components/content/posts/posts";
 
 export default class Feed extends React.Component<any, any> {
     constructor(props: any) {
@@ -22,9 +22,11 @@ export default class Feed extends React.Component<any, any> {
 
     render() {
         return (
-            <div className="container">
-                Feed
-            </div>
+            <>
+                <div className="flex flex-col items-center mt-5">
+                    <Posts/>
+                </div>
+            </>
         )
     }
 }

@@ -11,7 +11,7 @@ export default function Post(props: any) {
     const post: PostInterface = props.post ?? null;
 
     const getUserFromPost = () => {
-        return 'User';
+        return post?.user ?? 'User';
     }
 
     const toggleComments = () => {
@@ -19,7 +19,7 @@ export default function Post(props: any) {
     }
 
     if (!post) {
-        return (<>Post is invalid</>);
+        return (<></>);
 
     } else {
         const user = getUserFromPost();
@@ -29,7 +29,7 @@ export default function Post(props: any) {
         const comments = post.comments ?? [];
 
         return (
-            <Card className="w-9/12">
+            <Card className="w-full mb-4">
                 <div className="flex flex-row">
                     <Image className="mt-2 mr-1 border-4 rounded-full w-10 h-10" width={100}
                            height={100}

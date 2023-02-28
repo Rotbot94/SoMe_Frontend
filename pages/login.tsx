@@ -35,7 +35,7 @@ export default function Login() {
             const res = await LoginService.get().login(formData);
             if (res?.status == 200 || res?.status == 201) {
                 await UserService.get().getUser();
-                await Router.push('/profile').finally(() => Router.reload());
+                await Router.push('/feed').finally(() => Router.reload());
             }
         } catch (e) {
             console.log(e);

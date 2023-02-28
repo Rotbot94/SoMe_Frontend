@@ -16,7 +16,7 @@ export default function NavBar(): JSX.Element {
         <>
             <Navbar className="navbar" fluid={true} rounded={true}>
                 <Navbar.Brand href={"/"}>
-                    <h1>SoMe</h1>
+                    <h1 className="text-white">Pesty Ninja</h1>
                 </Navbar.Brand>
                 <Navbar.Toggle/>
                 <Navbar.Collapse>
