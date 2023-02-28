@@ -76,7 +76,7 @@ export default function Login() {
                                    required={true}
                         />
                     </div>
-                    <Button className="mx-auto px-5"  disabled={disabled} type="submit">
+                    <Button className="mx-auto px-5" disabled={disabled} type="submit">
                         Login
                     </Button>
                 </form>

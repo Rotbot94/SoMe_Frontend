@@ -2,6 +2,7 @@ import React, {ReactNode} from "react";
 import Head from 'next/head';
 import {LoginService} from "@/utils/login-service";
 import dynamic from "next/dynamic";
+import {Footer} from "flowbite-react";
 
 interface ILayoutProps {
     children: ReactNode;
@@ -25,6 +26,18 @@ const Layout = ({children}: ILayoutProps) => {
             <div>
                 {children}
             </div>
+            {/*<Footer>*/}
+            {/*    <Footer.Copyright*/}
+            {/*        href="/"*/}
+            {/*        by="Ali Issa™"*/}
+            {/*        year={2023}*/}
+            {/*    />*/}
+            {/*    <Footer.LinkGroup>*/}
+            {/*        <Footer.Link href="/">*/}
+            {/*            Index*/}
+            {/*        </Footer.Link>*/}
+            {/*    </Footer.LinkGroup>*/}
+            {/*</Footer>*/}
         </>
     );
 };

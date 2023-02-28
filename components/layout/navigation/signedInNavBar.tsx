@@ -37,8 +37,8 @@ export default function SignedInNavBar(this: any): JSX.Element {
                     <h1>SoMe</h1>
                 </Navbar.Brand>
                 <Navbar.Toggle/>
-                <Navbar.Collapse className={"m-2"}>
-                    <Navbar.Link href="/feed" active={isActive('/feed')}>
+                <Navbar.Collapse>
+                    <Navbar.Link className="m-2" href="/feed" active={isActive('/feed')}>
                         Feed
                     </Navbar.Link>
                     <Dropdown
@@ -48,7 +48,7 @@ export default function SignedInNavBar(this: any): JSX.Element {
                                        img="https://i.pinimg.com/originals/bf/3a/fd/bf3afd9576212371897e10694c078855.jpg"
                                        rounded={true}/>}>
                         <Dropdown.Header>
-                        <span className="block text-sm">
+                        <span className="block truncate text-sm">
                             {user && <div>
                                 <div className="capitalize">
                                     {`${user?.first_name} ${user?.last_name}`}
@@ -68,6 +68,10 @@ export default function SignedInNavBar(this: any): JSX.Element {
                             Sign out
                         </Dropdown.Item>
                     </Dropdown>
+                    <Navbar.Link href={""} >
+                    </Navbar.Link>
+                    <Navbar.Link href={""} >
+                    </Navbar.Link>
                 </Navbar.Collapse>
             </Navbar>
         </>
