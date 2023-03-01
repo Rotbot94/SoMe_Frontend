@@ -19,12 +19,14 @@ export class UtilService {
     let formElement = element as HTMLFormElement;
 
     if (element.tagName !== 'FORM') {
+      // @ts-ignore
       formElement = element.closest('form');
     }
 
     if (!formElement) return {} as T;
 
     return Array.from(new FormData(formElement).entries()).reduce((p, c) => {
+      // @ts-ignore
       p[c[0]] = c[1];
       return p;
     }, {}) as T
