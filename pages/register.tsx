@@ -67,12 +67,12 @@ export default function Register() {
         <div className="flex flex-row justify-center text-center">
             <div className="container">
                 <div className="mx-auto w-[600px]">
-                    <h1>Registration</h1>
+                    <h1 className="mb-2 text-white">Registration</h1>
                     <form className="flex flex-col gap-4" onSubmit={(e) => submit(e)}>
                         <div>
                             <div>
-                                <div className="mb-2 block">
-                                    <Label
+                                <div className="mb-2 !text-white block">
+                                    <Label className="text-white"
                                         htmlFor="firstname"
                                         value="First Name"
                                     />
@@ -87,7 +87,7 @@ export default function Register() {
                             </div>
                             <div>
                                 <div className="mb-2 block">
-                                    <Label
+                                    <Label className="text-white"
                                         htmlFor="lastname"
                                         value="Last Name"
                                     />
@@ -101,7 +101,7 @@ export default function Register() {
                                 />
                             </div>
                             <div className="mb-2 block">
-                                <Label
+                                <Label className="text-white"
                                     htmlFor="email1"
                                     value="Email"
                                 />
@@ -116,7 +116,7 @@ export default function Register() {
                         </div>
                         <div>
                             <div className="mb-2 block">
-                                <Label
+                                <Label className="text-white"
                                     htmlFor="password"
                                     value="Password"
                                 />

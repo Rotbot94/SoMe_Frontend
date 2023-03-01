@@ -1,7 +1,6 @@
-
-import React from "react";
-import Image from "next/image";
-import PhotoAlbum from "react-photo-album";
+import React from 'react';
+// @ts-ignore
+import {PhotoAlbum} from 'react-photo-album';
 
 export default function ImageCarousel(props: any) {
 

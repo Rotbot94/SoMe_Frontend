@@ -47,9 +47,9 @@ export default function Login() {
         <div className="flex flex-row justify-center text-center">
             <div className="container">
                 <form className="w-6/12 mx-auto" onSubmit={(event) => submit(event)}>
-                    <h1 className="mb-5">Login</h1>
+                    <h1 className="mb-5 text-white">Login</h1>
                     <div className="mb-2">
-                        <Label
+                        <Label className="text-white"
                             htmlFor="email1"
                             value="Email"
                         />
@@ -63,7 +63,7 @@ export default function Login() {
                     />
                     <div>
                         <div className="mb-2 ">
-                            <Label
+                            <Label className="text-white"
                                 htmlFor="password"
                                 value="Password"
                             />

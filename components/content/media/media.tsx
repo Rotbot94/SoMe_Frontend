@@ -37,8 +37,6 @@ export default function Media(props: any): JSX.Element {
 
     ];
 
-    console.log(images)
-
     if (images?.length > 0) {
         return (
             <>
